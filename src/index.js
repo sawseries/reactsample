@@ -1,10 +1,7 @@
 import React from 'react';
 import useState from 'react';
 import ReactDOM from "react-dom";
-import App from "./App";
 import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import "./styles/index.css";
-import "./styles/hamburgers.min.css";
 import About from "./view/About";
 import Login from "./view/Login/Login";
 import Home from "./view/Home/Home";
