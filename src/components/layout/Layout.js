@@ -10,12 +10,16 @@ import {
   FiLogOut,
   FiBox,
 } from "react-icons/fi";
+
+
+
 export default function Layout({ children }) {
 
   const navigate = useNavigate();
 
   const isLoggedIn = sessionStorage.getItem('auth');
   let sidebar;
+  let menu;
   let btnlogout;
 
   const logout = () => {
@@ -36,9 +40,23 @@ export default function Layout({ children }) {
       btnlogout = <ul className={styles.right}>
                   <li className={styles.navsettings}><div className={styles.fonticon}><a onClick={logout} ><FiLogOut/><b>Logout</b></a></div></li>
                   </ul> 
+
+      menu =  <ul className={styles.left}>
+              <li className={styles.navsettings}>
+                <div className={styles.fonticon}><a href="/Home"><b>K2M ASSET</b></a></div>            
+              </li>
+              <li className={styles.navsettings}>
+                <div className={styles.fonticon}><a href="/Home"><b><FiHome/>ทรัพย์สิน</b></a></div>            
+              </li> 
+              </ul>         
    }else{
     sidebar = null;
     btnlogout = null;
+    menu =  <ul className={styles.left}>
+            <li className={styles.navsettings}>
+            <div className={styles.fonticon}><a href="/Home"><b>K2M ASSET</b></a></div>            
+            </li>
+            </ul>
   }
 
 
@@ -47,14 +65,7 @@ export default function Layout({ children }) {
     <div className={styles.navbar}>
     <div className={styles.headernav}>
       <div className={styles.nav}>
-        <ul className={styles.left}>
-          <li className={styles.navsettings}>
-            <div className={styles.fonticon}><a href="/Home"><b><FiHome/>ทรัพย์สิน</b></a></div>            
-          </li>
-          <li className={styles.navsettings}>
-            <div className={styles.fonticon}><a href="/"><b>ทรัพย์สิน</b></a></div>
-          </li>
-        </ul>
+        {menu}
         {btnlogout}
       </div>
     </div>
