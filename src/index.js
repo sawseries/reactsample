@@ -33,29 +33,3 @@ ReactDOM.render(
 );
 
 
-/*ReactDOM.render(  
-  <Router>
-      <Routes>
-        <Route path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/Login" component={Login} />
-      </Routes>
-  </Router>,
-  document.getElementById("root")
-);*/
-
-
-/*ReactDOM.render(  
-  <React.StrictMode>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/About" component={About} exact />
-        <Route path="/Login" component={Login} exact />
-      </Switch>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
-);*/
-
-
