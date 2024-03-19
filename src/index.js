@@ -1,17 +1,61 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import useState from 'react';
+import ReactDOM from "react-dom";
+import App from "./App";
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import "./styles/index.css";
+import "./styles/hamburgers.min.css";
+import About from "./view/About";
+import Login from "./view/Login/Login";
+import Home from "./view/Home/Home";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+const isLoggedIn = sessionStorage.getItem('auth');
+
+ReactDOM.render(  
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Router>
+      <Routes>
+    
+      {isLoggedIn==true ? (
+       <Route path="/" element={<Home />} />
+      ) : (
+        <Route path="/" element={<Login />} />
+      )}
+        
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
+    </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+/*ReactDOM.render(  
+  <Router>
+      <Routes>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/Login" component={Login} />
+      </Routes>
+  </Router>,
+  document.getElementById("root")
+);*/
+
+
+/*ReactDOM.render(  
+  <React.StrictMode>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/About" component={About} exact />
+        <Route path="/Login" component={Login} exact />
+      </Switch>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
+);*/
+
+

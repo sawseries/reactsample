@@ -1,8 +1,15 @@
-import Layout from "./components/layout/Layout";
-import Img from "./components/image/Img";
-export default  function App() {
-  return (<Layout>
-    <h1 className="title">Creando mi primer hook de React</h1>
+﻿import ContainerLayout from "./ContainerLayout";
+import Navbar from "../navbar/Navbar";
+import Img from "../image/Img";
+import MainLayout from "../elements/MainLayout";
+
+export default function Layout() {
+  return (
+    <ContainerLayout>
+      <Navbar />
+      <MainLayout>
+        <MainLayout.Wrapper>
+          <h1 className="title">Creando mi primer hook de React</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             quam perferendis minus recusandae odit ipsa amet itaque aut
@@ -45,5 +52,8 @@ export default  function App() {
             architecto enim praesentium quae, temporibus alias inventore
             incidunt est repellat exercitationem tempora.
           </p>
-  </Layout>);
+        </MainLayout.Wrapper>
+      </MainLayout>
+    </ContainerLayout>
+  );
 }
